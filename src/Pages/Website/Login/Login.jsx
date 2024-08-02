@@ -26,8 +26,11 @@ export default function Login()
           console.log("Sucsses")
           console.log(response)
           const token = response.data.token;
+          //let role = response.data.user.role;
           cookie.set("e-commerce" , token)
-          window.location.pathname = '/dashboard/users'
+         window.localStorage.setItem("userId" , response.data.user.id)
+          console.log("id user is" + localStorage.getItem("userId"))
+          window.location.pathname = '/dashboard' 
       }catch(err) {
           console.log(err)
       }

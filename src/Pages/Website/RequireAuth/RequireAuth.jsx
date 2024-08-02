@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { user } from '../../../Components/Api/Api';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { Axios } from '../../../Components/Api/Axios/Axios';
-export default function ReqireAuth()
+import Error403 from '../../Dashboard/Error403/Error403';
+
+export default function ReqireAuth({ allowRole })
 {
     const cookie = Cookie();
     const token = cookie.get("e-commerce");
@@ -31,9 +33,12 @@ export default function ReqireAuth()
             alert("Loading...") 
             )
          :
+          allowRole.includes(User.role) ?
           (
              <Outlet/>  
           )
+          :
+        <Error403 role={User.role}/>
         )
         : 
         (

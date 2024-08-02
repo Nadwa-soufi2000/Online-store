@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const WindowSize = createContext(null);
 
-export default function WindowContext({children})
+export default function WindowContext({ children })
 {
     const[windowSSize , setWindowSize] = useState(window.innerWidth);
 
