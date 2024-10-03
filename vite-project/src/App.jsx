@@ -18,6 +18,7 @@ import Loading from "./Components/Website/Loadind/Loading"
 import Products from "./Pages/Dashboard/Products/Products"
 import Home from "./Pages/Website/Home/Home"
 import Logout from "./Pages/Website/Logout/Logout"
+import EditProduct from "./Pages/Dashboard/EditProduct/EditProduct"
 //import Error403 from "./Pages/Dashboard/Error403/Error403"
 
 
@@ -59,7 +60,7 @@ function App() {
                   <Route path="categories/:id" element={<EditCategory/>}></Route>
 
                   <Route path="products" element={<Products/>}></Route>
-                  <Route path="products/:id" element={<Catgories/>}></Route>
+                  <Route path="products/:id" element={<EditProduct/>}></Route>
                   <Route path="product/add" element={<AddProducts />}></Route>
                </Route>
 

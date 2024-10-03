@@ -91,8 +91,8 @@ export default function Uesrs()
     return(
         <div className="w-[76%] gap-4 p-4 my-[5px] mx-auto flex flex-col items-start  box-border pt-[10px]">
           <div className="w-full flex items-center justify-between">
-             <h1 className="text-[38px] font-[Roboto] text-purple-800 font-bold">Users page</h1>
-             <Link className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto]" to='/dashboard/user/add'>Add User</Link>
+             <h1 className="text-[22px] md:text-[38px] font-[Roboto] text-purple-800 font-bold">Users page</h1>
+             <Link className="flex justify-center items-center gap-2 p-2 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] md:text-[22px] w-[100px] md:w-[190px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800" to='/dashboard/user/add'>Add User</Link>
           </div>
         
            <TableComponent 

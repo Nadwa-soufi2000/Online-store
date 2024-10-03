@@ -73,7 +73,7 @@ export default function AddUser()
                 <option value='1996'>Wrtier</option>
               </select>
               <div className="flex items-start w-[94%] sm:w-[86%]">
-                 <button className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto]">Add user <FaArrowRightLong className="mt-1"/></button>
+                 <button className="flex justify-center items-center gap-2 p-2 sm:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-[100px] sm:w-[190px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add user <FaArrowRightLong className="mt-1"/></button>
               </div>
             </form>
         </div>

@@ -44,7 +44,7 @@ export default function AddCategories()
              </div>
            </div>
            <div className="flex items-start w-[94%] sm:w-[86%]">
-              <button className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-full sm:w-[250px] font-[Roboto]">Add Categories <FaArrowRightLong className="mt-1"/></button>
+              <button className="flex justify-center items-center gap-2 p-2 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-full sm:w-[250px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add Categories <FaArrowRightLong className="mt-1"/></button>
            </div>
          </form>
      </div>

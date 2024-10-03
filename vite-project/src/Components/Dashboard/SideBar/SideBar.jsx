@@ -38,8 +38,8 @@ export default function SideBar()
     return(
         <div className="flex flex-col items-center pt-5 h-[998px] shadow-xl gap-3 " 
              style={{
-                 position: windowSize < '768' ? 'fixed' : 'sticky' ,
-                 left: windowSize < '768' && isOpen ?  "-100%" : 0 ,
+                 position: windowSize < '992' ? 'fixed' : 'sticky' ,
+                 left: windowSize < '992' && isOpen ?  "-100%" : 0 ,
                  width: isOpen ? '22%' : 'fit-content'
                  }}>
               {

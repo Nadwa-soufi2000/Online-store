@@ -39,10 +39,10 @@ export default function Catgories()
 
     
     return(
-        <div className='w-[1100px] my-[5px] mx-auto flex flex-col items-start gap-1 pl-[10px] box-border pt-[10px]'>
+        <div className='w-[76%] my-[5px] mx-auto flex flex-col items-start gap-1 pl-[10px] box-border pt-[10px]'>
               <div className="w-full flex items-center justify-between">
-                <h1 className="text-[38px] font-[Roboto] text-purple-800 font-bold">Categories page</h1>
-                <Link className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto]" to='/dashboard/user/Catgory'>Add Category</Link>
+                <h1 className="text-[20px] md:text-[38px] font-[Roboto] text-purple-800 font-bold">Categories page</h1>
+                <Link className="flex justify-center items-center gap-2 p-2 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] md:text-[22px] w-[110px] md:w-[190px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800" to='/dashboard/user/Catgory'>Add Category</Link>
              </div>
             <TableComponent
                header={header}

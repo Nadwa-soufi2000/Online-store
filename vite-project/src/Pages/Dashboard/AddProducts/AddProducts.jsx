@@ -57,7 +57,7 @@ export default function AddCategories()
             <p>{(item.size / 1024).toFixed(2)}KB</p>
           </div>
         </div>
-        <button onClick={() => deleteImage(key , item)} className="flex justify-center items-center bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto] ">Delete</button>
+        <button onClick={() => deleteImage(key , item)} className="flex justify-center items-center bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Delete</button>
         </div>
         <div className="w-full h-[9px] rounded-[4px] bg-gray-600">
           <span 
@@ -68,9 +68,9 @@ export default function AddCategories()
     </div>
   )
 
-    async function addProducts(e)
+     function addProducts()
     {
-        e.preventDefault();
+       // e.preventDefault();
         const form = new FormData();
         form.append('category' , category)
         form.append('title' , title);
@@ -79,7 +79,7 @@ export default function AddCategories()
         form.append('discount' , discount);
         form.append('About' , about)
         try{
-         let res = await Axios.post(`${pro}/edit/${id}` , form)
+         let res = Axios.post(`${pro}/edit/${id}` , form)
           console.log(res)
           nav('/dashboard/products')
 
@@ -134,13 +134,13 @@ export default function AddCategories()
       }
     }
 
-   async function deleteImage(key , item)
+    function deleteImage(key , item)
     {
      const findId = picture.current[key];
     // const find = key;
      console.log(findId);
      try{
-       const res = await Axios.delete(`product-img/${findId}`)
+       const res =  Axios.delete(`product-img/${findId}`)
        console.log(res)
        setImages((prev) => prev.filter(image => image !== item))
        picture.current = picture.current.filter(id => id !== findId);
@@ -156,8 +156,8 @@ export default function AddCategories()
     console.log(id);
     console.log(picture.current)
     return(
-        <div className="w-[1100px] my-[5px] mx-auto flex flex-col items-center gap-1  box-border pt-[10px]">
-        <form onSubmit={addProducts} className="flex justify-center items-center gap-7 flex-col p-4 shadow-2xl  sm:w-[80%] md:w-[70%] lg:w-[520px]">
+        <div className="w-[75%] my-[5px] mx-auto flex flex-col items-center gap-1  box-border pt-[10px]">
+        <form className="flex justify-center items-center gap-7 flex-col p-4 shadow-2xl  sm:w-[80%] md:w-[70%] lg:w-[520px]">
           <h2 className=" text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-medium text-[#000000] font-[Roboto] ">Add Product</h2>
            <div className="flex items-start  flex-col gap-3 w-[94%] sm:w-[86%] ">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Category</label>
@@ -219,7 +219,7 @@ export default function AddCategories()
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Images</label>
              <div className="relative w-full  p-2">
                   <label className="text-purple-700 flex justify-center items-center text-[15px]  sm:text-[24px] md:text-[28px] font-[Roboto] w-full z-[20] absolute bottom-[6%] right-[0.4%] bg-gray-300 rounded-[10px]"  htmlFor="img">Add Images</label>
-                 <input disabled={!send} id="img" multiple onChange={HandelImages} className="w-[90%] outline-none pl-2 z-[10] absolute bottom-[6%] right-[0.4%]" type="file" />
+                 <input disabled={!send} id="img" multiple onChange={HandelImages} className="w-[90%] h-1 outline-none pl-2 z-[10] absolute bottom-[6%] right-[0.4%]" type="file" />
              </div>
            </div>
            <div className="flex justify-center items-start flex-col gap-8">
@@ -227,7 +227,7 @@ export default function AddCategories()
            </div>
 
            <div className="flex items-start w-[94%] sm:w-[86%]">
-              <button className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-full sm:w-[250px] font-[Roboto]">Add product <FaArrowRightLong className="mt-1"/></button>
+              <button onClick={addProducts}  className="flex justify-center items-center gap-2 p-2 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-full sm:w-[250px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add product <FaArrowRightLong className="mt-1"/></button>
            </div>
          </form>
      </div>
