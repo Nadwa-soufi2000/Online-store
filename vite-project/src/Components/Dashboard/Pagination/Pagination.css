@@ -1,0 +1,14 @@
+.custom-pagination
+{
+   list-style: none;
+}
+
+.pagination-tag-anchor
+{
+    width: 30px; 
+    height : 30px;
+    dispaly : inline-block;
+    text-align : center;
+    line-height : 30px;
+    transition: 0.3;
+}

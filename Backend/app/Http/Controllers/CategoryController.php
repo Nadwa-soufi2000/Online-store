@@ -11,9 +11,10 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Category::all();
+        $categories = Category::paginate($request->input('limit', 10));
+        return $categories;
     }
 
     /**
@@ -86,6 +87,15 @@ class CategoryController extends Controller
         //
     }
 
+     // Search On Users
+     public function search(Request $request)
+     {
+            $query = $request->input('title');
+            $results = Category::where('title', 'like', "%$query%")->get();
+            return response()->json($results);
+     }
+
+
     /**
      * Remove the specified resource from storage.
      */
@@ -97,6 +107,6 @@ class CategoryController extends Controller
         if (File::exists($path)) {
             File::delete($path);
         }
-        $category::delete();
+        $category->delete();
     }
 }

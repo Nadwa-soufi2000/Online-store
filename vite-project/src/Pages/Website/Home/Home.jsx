@@ -1,24 +1,16 @@
-import { LOGOUT } from "../../../Components/Api/Api"
-import { Axios } from "../../../Components/Api/Axios/Axios"
-import Cookie from 'cookie-universal'
+import Landing from "../../../Components/Website/Landing/Landing";
+import Navbar from "../../../Components/Website/Navbar/Navbar";
+import LatestSaleProduct from "../../../Components/Website/Product/LatestSaleProduct";
+import ShowTopRated from "../../../Components/Website/Product/ShowTopRated";
+
 export default function Home()
 {
-    const cookie =  Cookie()
-    async function handellogout()
-    {
-        try{
-           let res = await Axios.get(`/${LOGOUT}`)
-            console.log(res)
-            cookie.remove("e-commerce")
-            window.location.pathname('/login')
-        }catch(err) {
-            console.log(err)
-        }
-    }
+    
     return(
-        <div>
-            <h1>Home page</h1>
-            <button onClick={handellogout}>logout</button>
+        <div className="xl:w-[1490px] mx-auto w-full">
+            <Landing/>
+            <LatestSaleProduct/>
+            <ShowTopRated/>
         </div>
     )
 }

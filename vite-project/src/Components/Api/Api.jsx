@@ -8,4 +8,7 @@ export const CAT = "categories";
 export const CAT2 = "category";
 export const PRO = 'products';
 export const pro = 'product';
+export const LatestSale = "latest-sale";
+export const TopRatedApi = "top-rated";
 export const GOOGLE_CALL_BACK = "auth/google/callback";
+export const CART = "/cart";

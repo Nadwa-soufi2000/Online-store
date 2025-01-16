@@ -19,6 +19,9 @@ import Products from "./Pages/Dashboard/Products/Products"
 import Home from "./Pages/Website/Home/Home"
 import Logout from "./Pages/Website/Logout/Logout"
 import EditProduct from "./Pages/Dashboard/EditProduct/EditProduct"
+import CategoriesPage from "./Pages/Website/CategoriesPage/CategoriesPage"
+import Website from "./Pages/Website/Website"
+import SingleProduct from "./Pages/Website/SingleProduct/SingleProduct"
 //import Error403 from "./Pages/Dashboard/Error403/Error403"
 
 
@@ -28,14 +31,15 @@ function App() {
   return (
     <>
       <Routes>
-        <Route element={<RequireBack/>}>
-               <Route path="/signup" element={<Signup />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path='/' element={<Home/>}></Route>
-        </Route>
-        <Route path='/logout' element={<Logout/>}></Route>
-        <Route path="/auth/google/callback" element={<GoogleCallback />}></Route>
-        <Route path="/*" element={<Error404/>}></Route>
+       
+            <Route path='/' element={<Home/>}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="categories" element={<CategoriesPage />}></Route>
+            <Route path="/product/:id" element={<SingleProduct/>}></Route>
+            <Route path='/logout' element={<Logout/>}></Route>
+            <Route path="/auth/google/callback" element={<GoogleCallback />}></Route>
+           <Route path="/*" element={<Error404/>}></Route>
 
         <Route element={<ReqireAuth allowRole={['1995' , '1996']} />}>
            <Route path="/dashboard" element={<Dashboard/>}>

@@ -36,7 +36,7 @@ export default function SideBar()
 
 
     return(
-        <div className="flex flex-col items-center pt-5 h-[998px] shadow-xl gap-3 " 
+        <div className="flex flex-col items-center justify-start sm:justify-normal pt-5 h-[998px] shadow-xl gap-3 " 
              style={{
                  position: windowSize < '992' ? 'fixed' : 'sticky' ,
                  left: windowSize < '992' && isOpen ?  "-100%" : 0 ,
@@ -45,9 +45,9 @@ export default function SideBar()
               {
                 LinksArray.map((item , key) => 
                   item.role.includes(User.role) &&
-                  <NavLink key={key} to={item.path} className="flex justify-center items-center gap-2 bg-gray-300 rounded-[11px]  sm:text-[24px] font-[Roboto] text-purple-800 w-[90%] p-[10px]">
+                  <NavLink key={key} to={item.path} className="flex justify-center items-center no-underline gap-2 bg-gray-300 rounded-[11px]  sm:text-[24px] font-[Roboto] text-purple-800 w-[90%] p-[6px] hover:bg-gray-400">
                       {item.icon}
-                      <p style={{display: isOpen ? "flex" : "none"}}>{item.name}</p>
+                      <p style={{display: isOpen ? "flex" : "none"}} className="relative top-[8px]">{item.name}</p>
                   </NavLink>
                 )
               }

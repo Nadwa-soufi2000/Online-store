@@ -47,7 +47,7 @@ export default function EditProduct()
 
     useEffect(() => {
         Axios.get(`/${CAT}`)
-        .then((data) => setcatgoriesArray(data.data))
+        .then((data) => setcatgoriesArray(data.data.data))
       }, [])
 
     useEffect(() => {

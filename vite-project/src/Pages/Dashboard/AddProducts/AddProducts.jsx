@@ -14,6 +14,7 @@ export default function AddCategories()
    const[price , setPrice] = useState('');
    const[discount , setDiscount] = useState('');
    const[about , setAbout] = useState('');
+   const[stock , setStock] = useState('');
    const[send , setSend] = useState(false);
    const[id , setId] = useState();
    const progress = useRef([]);
@@ -31,11 +32,13 @@ export default function AddCategories()
     price: 222,
     discount: 0,
     About: 'About',
+    stock: 0 ,
    }
     
    useEffect(() => {
     Axios.get(`/${CAT}`)
-    .then((data) => setcatgoriesArray(data.data))
+    .then((data) => setcatgoriesArray(data.data.data))
+    .catch((err) => console.log(err))
   }, [])
 
    const categoriesShow = catgoriesArray.map((item , key) => 
@@ -62,7 +65,7 @@ export default function AddCategories()
         <div className="w-full h-[9px] rounded-[4px] bg-gray-600">
           <span 
             ref={(e) => (progress.current[key]) = e}
-            className='relative bg-[#56b6ff] h-full block  rounded-[10px] transition-[0.3s] after:content[percent] after:absolute after:top-[-25px] after:right-0 after:bg-gray-500 after:text-white after:w-[18px] after:h-[21px] after:flex after:items-center after:justify-center after:font-[12px] after:rounded-[3px]'
+            className='relative bg-[#56b6ff] h-full block  rounded-[10px] transition-[0.3s] after:content["attr(percent)"] after:absolute after:top-[-25px] after:right-0 after:bg-gray-500 after:text-white after:w-[21px] after:h-[21px] after:flex after:items-center after:justify-center after:text-[12px] after:rounded-[3px]'
           ></span>
         </div>
     </div>
@@ -78,6 +81,7 @@ export default function AddCategories()
         form.append('price' , price)
         form.append('discount' , discount);
         form.append('About' , about)
+        form.append('stock' , stock)
         try{
          let res = Axios.post(`${pro}/edit/${id}` , form)
           console.log(res)
@@ -121,7 +125,7 @@ export default function AddCategories()
               {
                 progress.current[j.current].style.width = `${percent}`
                 progress.current[j.current].setAttribute('percent' , `${percent}%`)
-                console.log(progress.current[j.current].style.width)
+                console.log(progress.current[j.current])
               }
             }
           })
@@ -155,13 +159,14 @@ export default function AddCategories()
 
     console.log(id);
     console.log(picture.current)
+    
     return(
         <div className="w-[75%] my-[5px] mx-auto flex flex-col items-center gap-1  box-border pt-[10px]">
         <form className="flex justify-center items-center gap-7 flex-col p-4 shadow-2xl  sm:w-[80%] md:w-[70%] lg:w-[520px]">
           <h2 className=" text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-medium text-[#000000] font-[Roboto] ">Add Product</h2>
            <div className="flex items-start  flex-col gap-3 w-[94%] sm:w-[86%] ">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Category</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <select
                      value={category}
                      onChange={(e) =>
@@ -182,36 +187,43 @@ export default function AddCategories()
            </div>
            <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Title</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <input disabled={!send} value={title} onChange={(e) => setTitle(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
                  <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
              </div>
            </div>
            <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Description</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <input disabled={!send} value={description} onChange={(e) => setDescription(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
                  <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
              </div>
            </div>
            <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Price</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <input disabled={!send} value={price} onChange={(e) => setPrice(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
                  <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
              </div>
            </div>
            <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Discount</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <input disabled={!send} value={discount} onChange={(e) => setDiscount(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
                  <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
              </div>
            </div>
            <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
              <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">About</label>
-             <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                  <input disabled={!send} value={about} onChange={(e) => setAbout(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
+                 <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
+             </div>
+           </div>
+           <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
+             <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Stock</label>
+             <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                 <input disabled={!send} value={stock} onChange={(e) => setStock(e.target.value)} className="w-[90%] outline-none pl-2 " type="text" required/>
                  <MdOutlineSubtitles className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
              </div>
            </div>
@@ -227,7 +239,7 @@ export default function AddCategories()
            </div>
 
            <div className="flex items-start w-[94%] sm:w-[86%]">
-              <button onClick={addProducts}  className="flex justify-center items-center gap-2 p-2 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-full sm:w-[250px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add product <FaArrowRightLong className="mt-1"/></button>
+              <button onClick={addProducts}  className="flex justify-center items-center no-underline gap-2 p-3 md:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] md:text-[22px] w-[140px] md:w-[190px] font-[Roboto] hover:bg-purple-400 hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add product <FaArrowRightLong className="mt-1"/></button>
            </div>
          </form>
      </div>

@@ -51,7 +51,7 @@ export default function EditUser()
            <FaUserCircle className=" w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] text-purple-800 fill-current"/>
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Name</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full  border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input value={name} onChange={(e) => setName(e.target.value)} className="w-[90%] outline-none pl-2 " type="text"required/>
                     <FaUser className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -59,7 +59,7 @@ export default function EditUser()
 
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%] ">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">E-mail</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-[90%] outline-none pl-2" type="email"/>
                     <MdEmail className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -67,7 +67,7 @@ export default function EditUser()
 
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Password</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input className="w-[90%] outline-none pl-2" type="password"/>
                     <RiLockPasswordFill className=" w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -79,7 +79,7 @@ export default function EditUser()
                 <option value='1999'>Product Manager</option>
               </select>
               <div className="flex items-start w-[94%] sm:w-[86%]">
-                 <button disabled={disable} className="flex justify-center items-center gap-2 p-4 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto]">Edit <FaArrowRightLong className="mt-1"/></button>
+                 <button disabled={disable} className="flex justify-center items-center gap-2 sm:p-4 p-3 bg-purple-800 rounded-[20px] text-white text-[18px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto] hover:bg-purple-400 hover:border-purple-800 hover:border-solid hover:border-[1px]">Edit <FaArrowRightLong className="mt-1"/></button>
               </div>
             </form>
         </div>

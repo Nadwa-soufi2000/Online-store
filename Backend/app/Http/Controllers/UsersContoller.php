@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersContoller extends Controller
 {
-    public function GetUsers()
+    public function GetUsers(Request $request)
     {
-        return User::all();
+        $users = User::paginate($request->input('limit', 10));
+        return $users;
     }
     // Get Auth User
     public function authUser()
@@ -62,6 +63,14 @@ class UsersContoller extends Controller
         $user->role = $request->role;
         $user->save();
     }
+
+    // Search On Users
+    public function search(Request $request)
+     {
+            $query = $request->input('title');
+            $results = User::where('name', 'like', "%$query%")->get();
+            return response()->json($results);
+     }
 
     // Delete User
     public function destroy($id)

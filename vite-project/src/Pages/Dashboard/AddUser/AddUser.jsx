@@ -41,12 +41,12 @@ export default function AddUser()
     return(
      <div className="relative w-[80%] mr-auto ml-auto">
          { loading && <Loading/> }
-        <div className="w-full my-[5px] mx-auto flex flex-col items-center gap-1  box-border pt-[10px] z-10">
+        <div className="w-full my-[5px] mx-auto flex flex-col items-center gap-1  box-border pt-[10px]">
            <form onSubmit={addData} className="flex justify-center items-center gap-7 flex-col p-4 shadow-2xl  sm:w-[80%] md:w-[70%] lg:w-[520px]">
            <FaUserCircle className=" w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] text-purple-800 fill-current"/>
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Name</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input value={name} onChange={(e) => setName(e.target.value)} className="w-[90%] outline-none pl-2 " type="text"required/>
                     <FaUser className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -54,7 +54,7 @@ export default function AddUser()
 
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%] ">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">E-mail</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-[90%] outline-none pl-2" type="email"/>
                     <MdEmail className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -62,7 +62,7 @@ export default function AddUser()
 
               <div className="flex items-start flex-col gap-3 w-[94%] sm:w-[86%]">
                 <label className="text-gray-500 text-[20px] sm:text-[24px] md:text-[28px] font-[Roboto]">Password</label>
-                <div className="flex justify-around items-center w-full border border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
+                <div className="flex justify-around items-center w-full  border-solid border-b-gray-500 border-b-4 border-l-0 border-r-0 border-t-0 p-2">
                     <input value={password} onChange={(e) => setPassword(e.target.value)} className="w-[90%] outline-none pl-2" type="password"/>
                     <RiLockPasswordFill className=" w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] text-purple-800 fill-current" />
                 </div>
@@ -73,7 +73,7 @@ export default function AddUser()
                 <option value='1996'>Wrtier</option>
               </select>
               <div className="flex items-start w-[94%] sm:w-[86%]">
-                 <button className="flex justify-center items-center gap-2 p-2 sm:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-[100px] sm:w-[190px] font-[Roboto] hover:bg-white hover:border-[2px] hover:border-purple-800 hover:text-purple-800">Add user <FaArrowRightLong className="mt-1"/></button>
+                 <button className="flex justify-center items-center gap-2 p-3 sm:p-4 bg-purple-800 rounded-[20px] text-white text-[14px] sm:text-[22px] w-[120px] sm:w-[190px] font-[Roboto] hover:bg-purple-400 hover:border-[2px] hover:border-purple-800">Add user <FaArrowRightLong className="mt-1"/></button>
               </div>
             </form>
         </div>
